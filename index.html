@@ -7,10 +7,46 @@
     <title>Future project</title>
   </head>
   <body>
-    <nav>
-      <h2>Future KG 22</h2>
-      <button>Register</button>
+    <nav class="nav">
+      <div class="navbar">
+        <div class="contayner">
+          <div class="nav_top">
+            <div class="nav_top__left">
+              <p>Folow Us</p>
+              <img src="./img/instagram.svg" alt="instagram" />
+              <img src="./img/facebook.svg" alt="facebook" />
+              <img src="./img/twitter.svg" alt="twitter" />
+            </div>
+            <div class="nav_top__right">
+              <a href="" id="registerBtn" class="navbar_reg">Sign up</a>
+              <a href="" class="navbar_reg">Log in</a>
+            </div>
+          </div>
+          <hr />
+          <div class="nav_bottom">
+            <div class="logo">Future Shop</div>
+            <form class="search">
+              <input class="search__input" type="search" placeholder="Search" />
+              <button>Search</button>
+            </form>
+            <div class="text_future">
+              <img src="./img/logo.png" width="200px" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
+
+    <div class="overlay"></div>
+
+    <form>
+      <h3>Sign up</h3>
+      <input id="usernameInp" type="text" placeholder="Username" />
+      <input id="emailInp" type="email" placeholder="Email" />
+      <input id="passwordInp" type="password" placeholder="Password" />
+      <input id="confirmInp" type="password" placeholder="Confirm password" />
+      <button>Sign up</button>
+    </form>
   </body>
   <script src="./JS/main.js"></script>
 </html>
