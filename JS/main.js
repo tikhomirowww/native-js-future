@@ -1,8 +1,9 @@
 const registerBtn = document.querySelector("#registerBtn");
 const overlay = document.querySelector(".overlay");
-const form = document.querySelector("form");
+const form = document.querySelector(".form");
 
-registerBtn.addEventListener("click", () => {
+registerBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   overlay.style.display = "block";
   form.style.display = "block";
 });
