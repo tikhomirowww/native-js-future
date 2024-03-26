@@ -7,6 +7,7 @@
     <title>Future project</title>
   </head>
   <body>
+
     <nav class="nav">
       <div class="navbar">
         <div class="contayner">
@@ -18,7 +19,7 @@
               <img src="./img/twitter.svg" alt="twitter" />
             </div>
             <div class="nav_top__right">
-              <a href="" class="navbar_reg">Sing in</a>
+              <a href="" id="registerBtn" class="navbar_reg">Sign up</a>
               <a href="" class="navbar_reg">Log in</a>
             </div>
           </div>
@@ -33,6 +34,17 @@
         </div>
       </div>
     </nav>
+  
+   <div class="overlay"></div>
+  
+   <form>
+      <h3>Sign up</h3>
+      <input id="usernameInp" type="text" placeholder="Username" />
+      <input id="emailInp" type="email" placeholder="Email" />
+      <input id="passwordInp" type="password" placeholder="Password" />
+      <input id="confirmInp" type="password" placeholder="Confirm password" />
+      <button>Sign up</button>
+    </form>
   </body>
   <script src="./JS/main.js"></script>
 </html>
