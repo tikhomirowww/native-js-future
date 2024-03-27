@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "username": "Petya",
+      "email": "petya@email.com",
+      "password": "fhbjfe,w",
+      "id": 1
+    },
+    {
+      "username": "Vasya",
+      "email": "vasya@email.com",
+      "password": "fhbjfe,w",
+      "id": 2
+    },
+    {
+      "username": "fanwwi",
+      "email": "example@example",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "username": "fanwwi",
+      "email": "example@example",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "username": "bjnokml;dw",
+      "email": "fcdwkcd@bckjds.mknsd",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "username": "bjnokml;dw",
+      "email": "fcdwkcd@bckjdsmknsd",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "username": "bjnokml;dw",
+      "email": "fcdwkcd@bckjdsmknsdn",
+      "password": "123456",
+      "id": 7
+    }
+  ]
+}
