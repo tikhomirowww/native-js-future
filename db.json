@@ -3,20 +3,14 @@
     {
       "username": "Petya",
       "email": "petya@email.com",
-      "password": "fhbjfe,w",
+      "password": "12345678",
       "id": 1
     },
     {
       "username": "Vasya",
       "email": "vasya@email.com",
-      "password": "fhbjfe,w",
+      "password": "12345678",
       "id": 2
-    },
-    {
-      "username": "fanwwi",
-      "email": "example@example",
-      "password": "12345",
-      "id": 3
     },
     {
       "username": "fanwwi",
