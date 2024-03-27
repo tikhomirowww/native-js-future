@@ -1,8 +1,14 @@
 const registerBtn = document.querySelector("#registerBtn");
 const overlay = document.querySelector(".overlay");
-const form = document.querySelector("form");
+const form = document.querySelector(".form");
+const singBtn = document.querySelector(".singUp_inForm");
 
-registerBtn.addEventListener("click", () => {
+singBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
+registerBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   overlay.style.display = "block";
   form.style.display = "block";
 });
