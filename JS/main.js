@@ -6,7 +6,6 @@ const emailInp = document.querySelector("#emailInp");
 const passwordInp = document.querySelector("#passwordInp");
 const confirmInp = document.querySelector("#confirmInp");
 const signUpBtn = document.querySelector("#signUp");
-
 registerBtn.addEventListener("click", (e) => {
   e.preventDefault();
   overlay.style.display = "block";
