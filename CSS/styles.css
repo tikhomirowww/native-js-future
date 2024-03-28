@@ -18,7 +18,7 @@
   background-color: rgba(0, 0, 0, 0.755);
 }
 
-.form {
+.modal {
   padding: 20px;
   padding-top: 10px;
   border-radius: 5px;
@@ -33,12 +33,15 @@
   transform: translate(-50%, -50%);
 }
 
-.form h3 {
+.modal h3 {
   color: #fff;
+  margin-left: 7px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.form input {
-  width: 94%;
+.modal input {
+  width: 96%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #aeaeae;
@@ -47,36 +50,15 @@
   outline: none;
   font-size: 13px;
   background-color: #171717;
+  margin-left: 7px;
 }
 
-.form input::placeholder {
+.modal input::placeholder {
   color: #aeaeae;
 }
 
-.form input#usernameInp::before {
-  content: url("../img/icon-person.png");
-  position: absolute;
-  left: 10px;
-  top: 50%;
-}
-
-.form input#emailInp::before {
-  content: url("../img/icon-email.png");
-  position: absolute;
-  left: 10px;
-  top: 50%;
-}
-
-.form input#passwordInp::before,
-.form input#confirmInp::before {
-  content: url("../img/icon-password.png");
-  position: absolute;
-  left: 10px;
-  top: 50%;
-}
-
-.form button {
-  width: 94%;
+.modal button {
+  width: 96%;
   padding: 10px;
   margin: 10px 0;
   border: none;
@@ -84,13 +66,11 @@
   background-color: #ffd500;
   color: #000;
   cursor: pointer;
+  margin-left: 7px;
 }
 
-body {
-  margin: 0;
-}
 .nav {
-  background-color: rgb(255, 213, 75);
+  background-color: #ffd500;
   width: 100%;
   height: 30%;
 }
@@ -148,10 +128,22 @@ hr {
   padding-bottom: 10px;
 }
 .logo {
-  font-size: 35px;
+  margin-top: 10px;
+  font-size: 17px;
   font-family: "Russo One", sans-serif;
-  font-weight: 500;
-  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.add img {
+  width: 60px;
 }
 
 .input_Dony {
@@ -186,15 +178,103 @@ hr {
   margin-top: 10px;
 }
 
+.btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
 .search__input {
   border: 1px solid #555;
   width: 100%;
   padding: 14px 4px 14px 40px;
-  no-repeat 13px center;
   background: white
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat 13px center;
 }
 
 .search__input:focus-visible {
   outline: none;
+}
+
+.loginForm {
+  display: none;
+}
+
+/* add product */
+
+.new {
+  padding: 20px;
+  padding-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px #171717;
+  width: 400px;
+  text-align: left;
+  display: none;
+  background-color: #171717;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.new h3 {
+  color: #fff;
+  margin-bottom: 10px;
+  margin-left: 7px;
+  margin-top: 10px;
+}
+
+.new input {
+  width: 96%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #aeaeae;
+  border-radius: 3px;
+  color: #aeaeae;
+  outline: none;
+  font-size: 13px;
+  background-color: #171717;
+  margin-left: 7px;
+}
+
+#imgInp {
+  height: 200px;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  width: 90%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#chooseImg {
+  width: 96%;
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+
+#descriptionArea {
+  height: 80px;
+  width: 96%;
+  margin-left: 7px;
+  background-color: #171717;
+  padding: 10px;
+  border: 1px solid #aeaeae;
+  border-radius: 3px;
+  color: #aeaeae;
+}
+
+.new button {
+  width: 96%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 3px;
+  background-color: #ffd500;
+  color: #000;
+  cursor: pointer;
+  margin-left: 7px;
 }
