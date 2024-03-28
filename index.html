@@ -19,12 +19,13 @@
             </div>
             <div class="nav_top__right">
               <a href="" id="registerBtn" class="navbar_reg">Sign up</a>
-              <a href="" class="navbar_reg">Log in</a>
+              <a href="" id="loginTriger" class="navbar_reg">Log in</a>
             </div>
           </div>
           <hr />
           <div class="nav_bottom">
             <div class="logo">Future Shop</div>
+            <div id="name"></div>
             <form class="search">
               <input class="search__input" type="search" placeholder="Search" />
               <button>Search</button>
@@ -39,14 +40,20 @@
 
     <div class="overlay"></div>
 
-    <form class="form">
+    <form class="form modal">
       <h3>Sign up</h3>
       <input id="usernameInp" type="text" placeholder="Username" />
       <input id="emailInp" type="email" placeholder="Email" />
       <input id="passwordInp" type="password" placeholder="Password" />
       <input id="confirmInp" type="password" placeholder="Confirm password" />
-
       <button id="signUp">Sign up</button>
+    </form>
+
+    <form class="loginForm modal">
+      <h3>Sign in</h3>
+      <input id="loginEmailInp" type="email" placeholder="Email" />
+      <input id="loginPasswordInp" type="password" placeholder="Password" />
+      <button>Login</button>
     </form>
   </body>
   <script src="./JS/main.js"></script>

@@ -18,7 +18,7 @@
   background-color: rgba(0, 0, 0, 0.755);
 }
 
-.form {
+.modal {
   padding: 20px;
   padding-top: 10px;
   border-radius: 5px;
@@ -33,11 +33,11 @@
   transform: translate(-50%, -50%);
 }
 
-.form h3 {
+.modal h3 {
   color: #fff;
 }
 
-.form input {
+.modal input {
   width: 94%;
   padding: 10px;
   margin: 10px 0;
@@ -49,33 +49,33 @@
   background-color: #171717;
 }
 
-.form input::placeholder {
+.modal input::placeholder {
   color: #aeaeae;
 }
 
-.form input#usernameInp::before {
+.modal input#usernameInp::before {
   content: url("../img/icon-person.png");
   position: absolute;
   left: 10px;
   top: 50%;
 }
 
-.form input#emailInp::before {
+.modal input#emailInp::before {
   content: url("../img/icon-email.png");
   position: absolute;
   left: 10px;
   top: 50%;
 }
 
-.form input#passwordInp::before,
-.form input#confirmInp::before {
+.modal input#passwordInp::before,
+.modal input#confirmInp::before {
   content: url("../img/icon-password.png");
   position: absolute;
   left: 10px;
   top: 50%;
 }
 
-.form button {
+.modal button {
   width: 94%;
   padding: 10px;
   margin: 10px 0;

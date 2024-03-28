@@ -3,13 +3,13 @@
     {
       "username": "Petya",
       "email": "petya@email.com",
-      "password": "fhbjfe,w",
+      "password": "12345678",
       "id": 1
     },
     {
       "username": "Vasya",
       "email": "vasya@email.com",
-      "password": "fhbjfe,w",
+      "password": "12345678",
       "id": 2
     },
     {
@@ -41,6 +41,18 @@
       "email": "fcdwkcd@bckjdsmknsdn",
       "password": "123456",
       "id": 7
+    },
+    {
+      "username": "beka",
+      "email": "bekamax@gmai.com",
+      "password": "123456789",
+      "id": 8
+    },
+    {
+      "username": "beka",
+      "email": "bekamax05@gmai.com",
+      "password": "123",
+      "id": 9
     }
   ]
 }
