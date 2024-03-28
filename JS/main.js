@@ -1,3 +1,4 @@
+// register connections
 const registerBtn = document.querySelector("#registerBtn");
 const overlay = document.querySelector(".overlay");
 const usernameInp = document.querySelector("#usernameInp");
@@ -25,13 +26,14 @@ const descriptionArea = document.getElementById("descriptionArea");
 const cards = document.querySelector(".cards");
 
 // register
+
 registerBtn.addEventListener("click", (e) => {
   e.preventDefault();
   overlay.style.display = "block";
   form.style.display = "block";
 });
 
-overlay.addEventListener("click", () => {
+function closeModal() {
   overlay.style.display = "none";
   form.style.display = "none";
   modal.forEach((item) => (item.style.display = "none"));
@@ -54,12 +56,10 @@ async function registration() {
     return;
   }
 
-  let inDb = await uniqueEmail(emailInp.value);
-  console.log(inDb);
 
   let users = await getUsers();
 
-  if (inDb) {
+  if (users.some((item) => item.email === emailInp.value)) {
     alert("Такой пользователь уже есть");
     return;
   }
@@ -83,16 +83,45 @@ async function registration() {
   }
 
   form.reset();
-  overlay.style.display = "none";
-  form.style.display = "none";
+  closeModal();
 }
 
-async function uniqueEmail(email) {
+async function getUsers() {
   let res = await fetch("http://localhost:8000/users");
   let data = await res.json();
   console.log(data);
 
-  return data.some((item) => item.email === email);
+  return data;
+}
+
+//login logic
+loginTrigger.addEventListener("click", (e) => {
+  e.preventDefault();
+  overlay.style.display = "block";
+  loginForm.style.display = "block";
+});
+
+async function login() {
+  if (!emailLoginInp.value.trim() || !passwordLoginInp.value.trim()) {
+    alert("Some inputs are empty!");
+    return;
+  }
+
+  let users = await getUsers();
+
+  if (users.some((item) => item.email === emailInp.value)) {
+    alert("User not found!");
+    return;
+  }
+
+  const foundObj = users.find((user) => user.email === emailLoginInp.value);
+  if (foundObj.password !== passwordLoginInp.value) {
+    alert("Wrong password!!! (Uhodi)");
+    return;
+  }
+
+  localStorage.setItem("user", foundObj.username);
+  loginForm.reset();
 }
 uniqueEmail();
 
@@ -211,4 +240,47 @@ imgInp.addEventListener("change", () => {
 
     chooseImg.style.backgroundImage = `url(${imageURL})`;
   }
+
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  login();
+  closeModal();
+});
+
+window.addEventListener("storage", getName);
+
+function getName() {
+  let user = localStorage.getItem("user");
+  if (user) {
+    username.innerText = user;
+  } else {
+    username.innerText = "";
+  }
+}
+getName();
+
+// Категории
+document.addEventListener("DOMContentLoaded", function () {
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", function () {
+      const accordionItem = this.parentElement;
+      const accordionContent =
+        accordionItem.querySelector(".accordion-content");
+
+      if (accordionContent.style.display === "block") {
+        accordionContent.style.display = "none";
+      } else {
+        const allAccordionContents =
+          document.querySelectorAll(".accordion-content");
+        allAccordionContents.forEach((content) => {
+          content.style.display = "none";
+        });
+        accordionContent.style.display = "block";
+      }
+    });
+  });
+
 });

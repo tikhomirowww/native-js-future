@@ -9,19 +9,14 @@
     {
       "username": "vas_ya",
       "email": "vasya@email.com",
-      "password": "87654321",
+
+      "password": "12345678",
       "id": 2
     },
     {
       "username": "fanwwi",
-      "email": "farangiz.anvarjanova553@gmail.com",
-      "password": "3286432",
-      "id": 3
-    },
-    {
-      "username": "beka_123",
-      "email": "bekamax05@gmail.com",
-      "password": "43267843",
+      "email": "example@example",
+      "password": "123456",
       "id": 4
     },
     {
@@ -62,5 +57,6 @@
       "description": "ауц",
       "id": 3
     }
-  ]
+  ],
+  "products": []
 }
