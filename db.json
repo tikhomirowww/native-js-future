@@ -15,12 +15,6 @@
     {
       "username": "fanwwi",
       "email": "example@example",
-      "password": "12345",
-      "id": 3
-    },
-    {
-      "username": "fanwwi",
-      "email": "example@example",
       "password": "123456",
       "id": 4
     },
@@ -54,5 +48,6 @@
       "password": "123",
       "id": 9
     }
-  ]
+  ],
+  "products": []
 }

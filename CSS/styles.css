@@ -198,3 +198,7 @@ hr {
 .search__input:focus-visible {
   outline: none;
 }
+
+.loginForm {
+  display: none;
+}

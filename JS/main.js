@@ -7,14 +7,15 @@ const emailInp = document.querySelector("#emailInp");
 const passwordInp = document.querySelector("#passwordInp");
 const confirmInp = document.querySelector("#confirmInp");
 const signUpBtn = document.querySelector("#signUp");
-//login
-const emailLoginInp = document.querySelector("loginEmailInp");
-const passwordLoginInp = document.querySelector("loginPasswordInp");
+// login connections
+const emailLoginInp = document.querySelector("#loginEmailInp");
+const passwordLoginInp = document.querySelector("#loginPasswordInp");
 const loginForm = document.querySelector(".loginForm");
-const loginTriger = document.querySelector("#loginTriger");
+const loginTrigger = document.querySelector("#loginTrigger");
 const modal = document.querySelectorAll(".modal");
+const username = document.querySelector("#name");
 
-//registor logic
+//register logic
 registerBtn.addEventListener("click", (e) => {
   e.preventDefault();
   overlay.style.display = "block";
@@ -25,7 +26,7 @@ function closeModal() {
   modal.forEach((item) => (item.style.display = "none"));
 }
 
-overlay.addEventListener("click", closeModal());
+overlay.addEventListener("click", closeModal);
 
 form.addEventListener("submit", (event) => {
   event.stopPropagation();
@@ -70,11 +71,10 @@ async function registration() {
   }
 
   form.reset();
-  overlay.style.display = "none";
-  form.style.display = "none";
+  closeModal();
 }
 
-async function getUsers(email) {
+async function getUsers() {
   let res = await fetch("http://localhost:8000/users");
   let data = await res.json();
   console.log(data);
@@ -82,9 +82,8 @@ async function getUsers(email) {
   return data;
 }
 
-// login logic
-
-loginTriger.addEventListener("click", (e) => {
+//login logic
+loginTrigger.addEventListener("click", (e) => {
   e.preventDefault();
   overlay.style.display = "block";
   loginForm.style.display = "block";
@@ -105,17 +104,28 @@ async function login() {
 
   const foundObj = users.find((user) => user.email === emailLoginInp.value);
   if (foundObj.password !== passwordLoginInp.value) {
-    alert("Wrond password!!! ");
+    alert("Wrong password!!! (Uhodi)");
     return;
   }
+
   localStorage.setItem("user", foundObj.username);
   loginForm.reset();
 }
+
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   login();
   closeModal();
 });
-window.addEventListener("storage", () => {
-  let user = localStorage;
-});
+
+window.addEventListener("storage", getName);
+
+function getName() {
+  let user = localStorage.getItem("user");
+  if (user) {
+    username.innerText = user;
+  } else {
+    username.innerText = "";
+  }
+}
+getName();
