@@ -24,11 +24,16 @@
           </div>
           <hr />
           <div class="nav_bottom">
+            <div class="add">
+              <img src="./IMG/icon-add.png" alt="" />
+              <h2 class="logo">Add product</h2>
+            </div>
+
             <div class="logo">Future Shop</div>
             <div id="name"></div>
             <form class="search">
               <input class="search__input" type="search" placeholder="Search" />
-              <button>Search</button>
+              <button class="btn">Search</button>
             </form>
             <div class="text_future">
               <img src="./img/logo.png" width="200px" alt="" />
@@ -50,6 +55,24 @@
     </form>
 
     <form class="loginForm modal">
+      <h3>Log in</h3>
+      <input id="LoginEmailInp" type="email" placeholder="Email" />
+      <input id="LoginPasswordInp" type="password" placeholder="Password" />
+      <button id="signUp">Log in</button>
+    </form>
+
+    <form class="addProduct new">
+      <h3>Add product</h3>
+      <img id="chooseImg" src="./IMG/icon-choose.png" alt="" />
+      <input id="imgInp" type="file" />
+      <input id="titleInp" type="text" placeholder="Title" />
+      <input id="priceInp" type="text" placeholder="Price" />
+      <input id="categoryInp" type="text" placeholder="Category" />
+      <textarea id="descriptionArea" placeholder="Description"></textarea>
+      <button id="addProductBtn">Add product</button>
+    </form>
+
+    <div class="cards"></div>
       <h3>Sign in</h3>
       <input id="loginEmailInp" type="email" placeholder="Email" />
       <input id="loginPasswordInp" type="password" placeholder="Password" />

@@ -1,14 +1,15 @@
 {
   "users": [
     {
-      "username": "Petya",
+      "username": "petyya_",
       "email": "petya@email.com",
       "password": "12345678",
       "id": 1
     },
     {
-      "username": "Vasya",
+      "username": "vas_ya",
       "email": "vasya@email.com",
+
       "password": "12345678",
       "id": 2
     },
@@ -19,22 +20,42 @@
       "id": 4
     },
     {
-      "username": "bjnokml;dw",
-      "email": "fcdwkcd@bckjds.mknsd",
-      "password": "123456",
+      "username": "marattt_",
+      "email": "sadykovm874@gmail.com",
+      "password": "3218943",
       "id": 5
     },
     {
-      "username": "bjnokml;dw",
-      "email": "fcdwkcd@bckjdsmknsd",
-      "password": "123456",
-      "id": 6
+      "username": "azamtbkova",
+      "email": "albinaazamatbekova06@gmail.com",
+      "password": "219047378",
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "image": "C:\\fakepath\\jordans.jpg",
+      "title": "jordans",
+      "price": "200",
+      "category": "jordans",
+      "description": "super",
+      "id": 1
     },
     {
-      "username": "bjnokml;dw",
-      "email": "fcdwkcd@bckjdsmknsdn",
-      "password": "123456",
-      "id": 7
+      "image": "C:\\fakepath\\jordans.jpg",
+      "title": "bhjscds",
+      "price": "dcbhsjkml.cmdss",
+      "category": "dsnl'A",
+      "description": "vfedaq",
+      "id": 2
+    },
+    {
+      "image": "C:\\fakepath\\jordans.jpg",
+      "title": "мриоф",
+      "price": "свишцож.",
+      "category": "смвицщощждй.",
+      "description": "ауц",
+      "id": 3
     }
   ],
   "products": []
