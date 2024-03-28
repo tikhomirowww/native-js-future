@@ -13,6 +13,7 @@ const emailLoginInp = document.querySelector("#loginEmailInp");
 const passwordLoginInp = document.querySelector("#loginPasswordInp");
 const loginTrigger = document.querySelector("#loginTrigger");
 const modal = document.querySelectorAll(".modal");
+const username = document.querySelector("#name");
 // add product
 const addBtn = document.querySelector(".add");
 const addProductBtn = document.querySelector("#addProductBtn");
@@ -33,11 +34,14 @@ registerBtn.addEventListener("click", (e) => {
   form.style.display = "block";
 });
 
+overlay.addEventListener("click", closeModal);
+
 function closeModal() {
   overlay.style.display = "none";
   form.style.display = "none";
+  console.log("hello");
   modal.forEach((item) => (item.style.display = "none"));
-});
+}
 
 form.addEventListener("submit", (event) => {
   event.stopPropagation();
@@ -55,7 +59,6 @@ async function registration() {
     console.error("Пароль и подтверждение пароля не совпадают");
     return;
   }
-
 
   let users = await getUsers();
 
@@ -123,7 +126,6 @@ async function login() {
   localStorage.setItem("user", foundObj.username);
   loginForm.reset();
 }
-uniqueEmail();
 
 // login
 
@@ -132,29 +134,6 @@ loginTrigger.addEventListener("click", (e) => {
   overlay.style.display = "block";
   loginForm.style.display = "block";
 });
-
-async function login() {
-  if (emailLoginInp.value.trim() || passwordLoginInp.value.trim()) {
-    alert("Some inputs are empty");
-    return;
-  }
-
-  let inDb = await uniqueEmail();
-
-  let users = await getUsers();
-
-  if (!inDb) {
-    alert("Такого пользователя нет!");
-    return;
-  }
-
-  const founObject = users.find((user) => user.email === emailLoginInp.value);
-  if (founObject.password !== passwordLoginInp.value) {
-    alert("Wrong password!");
-  }
-
-  localStorage.setItem("user", founObject.username);
-}
 
 // add product
 
@@ -173,7 +152,6 @@ addProductBtn.addEventListener("click", async () => {
     alert("Заполните все поля");
     return;
   }
-  
 
   const productData = {
     image: imageSrc,
@@ -240,7 +218,7 @@ imgInp.addEventListener("change", () => {
 
     chooseImg.style.backgroundImage = `url(${imageURL})`;
   }
-
+});
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -282,5 +260,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
 });
