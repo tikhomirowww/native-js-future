@@ -202,3 +202,30 @@ hr {
 .loginForm {
   display: none;
 }
+
+/* !Категории */
+
+
+.accordion {
+  width: 300px;
+}
+
+/* Добавляем стили для аккордеона слева */
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+  display: flex; /*Размещаем элементы внутри accordion-item по горизонтали*/
+}
+ .accordion-header { 
+  background-color: #f4f4f4;
+  padding: 10px 15px;
+  cursor: pointer;
+  flex: 1; /* Растягиваем заголовок по всей доступной ширине */
+}
+.accordion-header:hover {
+  background-color: #ddd;
+}
+.accordion-content {
+  padding: 15px;
+  display: flex;
+}
+
