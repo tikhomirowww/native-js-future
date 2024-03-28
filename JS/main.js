@@ -1,4 +1,4 @@
-//register
+// register connections
 const registerBtn = document.querySelector("#registerBtn");
 const overlay = document.querySelector(".overlay");
 const form = document.querySelector(".form");
@@ -21,6 +21,7 @@ registerBtn.addEventListener("click", (e) => {
   overlay.style.display = "block";
   form.style.display = "block";
 });
+
 function closeModal() {
   overlay.style.display = "none";
   modal.forEach((item) => (item.style.display = "none"));
@@ -90,7 +91,7 @@ loginTrigger.addEventListener("click", (e) => {
 });
 
 async function login() {
-  if (!emailLoginInp.value.trim() || passwordLoginInp.value.trim()) {
+  if (!emailLoginInp.value.trim() || !passwordLoginInp.value.trim()) {
     alert("Some inputs are empty!");
     return;
   }
