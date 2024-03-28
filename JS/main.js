@@ -130,3 +130,27 @@ function getName() {
   }
 }
 getName();
+
+// Категории
+document.addEventListener("DOMContentLoaded", function () {
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", function () {
+      const accordionItem = this.parentElement;
+      const accordionContent =
+        accordionItem.querySelector(".accordion-content");
+
+      if (accordionContent.style.display === "block") {
+        accordionContent.style.display = "none";
+      } else {
+        const allAccordionContents =
+          document.querySelectorAll(".accordion-content");
+        allAccordionContents.forEach((content) => {
+          content.style.display = "none";
+        });
+        accordionContent.style.display = "block";
+      }
+    });
+  });
+});
