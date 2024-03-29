@@ -41,6 +41,14 @@
       "category": "rings",
       "description": "gold",
       "id": 2
+    },
+    {
+      "image": "https://www.shutterstock.com/image-illustration/3d-render-golden-rings-isolated-260nw-172133633.jpg",
+      "title": "rings",
+      "price": "200",
+      "category": "rings",
+      "description": "cool",
+      "id": 3
     }
   ]
 }

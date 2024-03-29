@@ -311,3 +311,83 @@ hr {
 .categories img {
   width: 900px;
 }
+
+/*! cads  */
+
+.cards-container {
+  display: flex;
+}
+.producCard {
+  width: 303px;
+  height: 450px;
+  margin: 20px 0px 20px 20px;
+  display: flex;
+
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.842);
+}
+.producCard:hover {
+  border: 1px solid rgba(0, 0, 0, 0.842);
+  box-shadow: -1px 0px 10px 5px rgba(0, 0, 0, 0.35);
+}
+
+.card-img-top {
+  width: 303px;
+  height: 303px;
+  margin: 0;
+  padding: 0;
+  background-color: azure;
+  position: relative;
+}
+.card-price {
+  margin: 5px 8px;
+  font-size: 16px;
+}
+.card-title {
+  margin: 5px 8px;
+}
+
+.card-text {
+  margin: 5px 8px;
+  color: rgba(128, 128, 128, 0.712);
+}
+.card-text:hover {
+  color: black;
+}
+.edit-btn {
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  border: #0056b3;
+
+  padding: 6px 10px;
+  border-radius: 23px;
+  margin: 10px 10px 10px 60px;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  background-color: #ffd500;
+  color: black;
+  border: none;
+  transition: 0.1s ease-in;
+}
+.delete-btn {
+  width: 80px;
+  background-color: #ffd500;
+  color: black;
+  border: #0056b3;
+  padding: 6px 10px;
+  border-radius: 23px;
+  margin: 0 10px;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+}
+.delete-btn:hover {
+  background-color: rgb(203, 13, 13);
+  color: white;
+  transition: 0.1s ease-in;
+}

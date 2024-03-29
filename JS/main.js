@@ -29,6 +29,8 @@ const descriptionArea = document.getElementById("descriptionArea");
 const cards = document.querySelector(".cards");
 const divImg = document.getElementById("divImg");
 
+const PRODUCTS_API = "http://localhost:8000/products";
+
 //! register
 
 registerBtn.addEventListener("click", (e) => {
@@ -157,6 +159,7 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+//! function get products from db
 addProductBtn.addEventListener("click", async () => {
   if (
     !imgInp.value ||
@@ -184,71 +187,42 @@ addProductBtn.addEventListener("click", async () => {
       },
       body: JSON.stringify(newProduct),
     });
-
-    if (!response.ok) {
-      alert("Failed to add product");
-    } else {
-      imgInp.value = "";
-      titleInp.value = "";
-      priceInp.value = "";
-      categoryInp.value = "";
-      descriptionArea.value = "";
-      closeModal();
-      render(newProduct);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-//! function get products from db
-
-addProductBtn.addEventListener("click", async () => {
-  try {
-    const newProduct = {
-      image: imgInp.value,
-      title: titleInp.value,
-      price: priceInp.value,
-      category: categoryInp.value,
-      description: descriptionArea.value,
-    };
-
-    const response = await fetch("http://localhost:8000/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to add product");
-    }
-
-    const responseData = await response.json();
-    render(responseData);
+    console.log(response);
+    imgInp.value = "";
+    titleInp.value = "";
+    priceInp.value = "";
+    categoryInp.value = "";
+    descriptionArea.value = "";
     closeModal();
-  } catch (error) {
-    console.error(error);
-    alert("Failed to add product");
-  }
+    render(newProduct);
+  } catch (error) {}
 });
 
 //! function render
 
-function render(products) {
-  container.innerHTML = "";
+async function render() {
+  const res = await fetch(PRODUCTS_API);
+  const data = await res.json();
 
-  products.forEach((product) => {
+  data.forEach((product) => {
     container.innerHTML += `
-      <img src="${product.image}" alt="${product.title}">
-      <p><strong>Title:</strong> ${product.title}</p>
-      <p><strong>Price:</strong> ${product.price}</p>
-      <p><strong>Category:</strong> ${product.category}</p>
-      <p><strong>Description:</strong> ${product.description}</p>
+      <div class="producCard">
+    <div class="card" style="width: 18rem;">
+      <img  src=${product.image} class="card-img-top" alt="Product image">
+      <div class="card-body">
+        <h5 class="card-title">${product.title}</h5>
+        <h6 class="card-title">${product.price}</h6>
+        <p class="card-text">${product.description}</p>
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+    </div>
     `;
   });
 }
+
+render();
 
 //! function see name
 
