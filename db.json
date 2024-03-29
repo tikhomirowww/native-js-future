@@ -9,7 +9,6 @@
     {
       "username": "vas_ya",
       "email": "vasya@email.com",
-
       "password": "12345678",
       "id": 2
     },
@@ -20,43 +19,28 @@
       "id": 4
     },
     {
-      "username": "marattt_",
+      "username": "mr6y_M",
       "email": "sadykovm874@gmail.com",
       "password": "3218943",
-      "id": 5
-    },
-    {
-      "username": "azamtbkova",
-      "email": "albinaazamatbekova06@gmail.com",
-      "password": "219047378",
       "id": 5
     }
   ],
   "products": [
     {
-      "image": "C:\\fakepath\\jordans.jpg",
-      "title": "jordans",
+      "image": "https://i.pinimg.com/originals/7a/dc/b0/7adcb00b069d8994b8923c74c828d8b2.jpg",
+      "title": "Necklace",
       "price": "200",
-      "category": "jordans",
-      "description": "super",
+      "category": "nacklaces",
+      "description": "gold",
       "id": 1
     },
     {
-      "image": "C:\\fakepath\\jordans.jpg",
-      "title": "bhjscds",
-      "price": "dcbhsjkml.cmdss",
-      "category": "dsnl'A",
-      "description": "vfedaq",
+      "image": "https://mykaleidoscope.ru/uploads/posts/2022-07/1657070753_1-mykaleidoscope-ru-p-krasivie-zolotie-koltsa-s-kamnyami-devushk-1.jpg",
+      "title": "Ring",
+      "price": "200$",
+      "category": "rings",
+      "description": "gold",
       "id": 2
-    },
-    {
-      "image": "C:\\fakepath\\jordans.jpg",
-      "title": "мриоф",
-      "price": "свишцож.",
-      "category": "смвицщощждй.",
-      "description": "ауц",
-      "id": 3
     }
-  ],
-  "products": []
+  ]
 }
