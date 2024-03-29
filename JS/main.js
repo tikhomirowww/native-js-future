@@ -14,22 +14,42 @@ const passwordLoginInp = document.querySelector("#loginPasswordInp");
 const loginTrigger = document.querySelector("#loginTrigger");
 const modal = document.querySelectorAll(".modal");
 const username = document.querySelector("#name");
+const logoutBtn = document.querySelector("#logout");
 //! add product
 const addBtn = document.querySelector(".add");
 const addProductBtn = document.querySelector("#addProductBtn");
 const addForm = document.querySelector(".addProduct");
 const container = document.querySelector(".cards-container");
 const newModal = document.querySelector(".new");
-
 const imgInp = document.getElementById("imgInp");
 const titleInp = document.getElementById("titleInp");
 const priceInp = document.getElementById("priceInp");
 const categoryInp = document.getElementById("categoryInp");
 const descriptionArea = document.getElementById("descriptionArea");
+
+//!edit
+const editForm = document.querySelector(".editProduct");
+const imgInpEdit = document.getElementById("imgInpEdit");
+const titleInpEdit = document.getElementById("titleInpEdit");
+const priceInpEdit = document.getElementById("priceInpEdit");
+const categoryInpEdit = document.getElementById("categoryInpEdit");
+const descriptionAreaEdit = document.getElementById("descriptionAreaEdit");
+
 const cards = document.querySelector(".cards");
 const divImg = document.getElementById("divImg");
 
 const PRODUCTS_API = "http://localhost:8000/products";
+
+//!logout
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("user");
+});
+
+async function getQuery(endpoint) {
+  const res = await fetch(`http://localhost:8000/${endpoint}`);
+  const data = await res.json();
+  return data;
+}
 
 //! register
 
@@ -54,6 +74,7 @@ addForm.addEventListener("click", function (event) {
 //! close modal
 
 function closeModal() {
+  modal.forEach((item) => (item.style.display = "none"));
   overlay.style.display = "none";
   form.style.display = "none";
   loginForm.style.display = "none";
@@ -112,8 +133,9 @@ async function registration() {
 //! function login
 
 async function getUsers() {
-  let res = await fetch("http://localhost:8000/users");
-  let data = await res.json();
+  // let res = await fetch("http://localhost:8000/users");
+  // let data = await res.json();
+  const data = await getQuery("users");
   console.log(data);
   return data;
 }
@@ -144,9 +166,29 @@ async function login() {
     return;
   }
 
-  localStorage.setItem("user", foundUser.username);
+  localStorage.setItem(
+    "user",
+    JSON.stringify({ username: foundUser.username, email: foundUser.email })
+  );
+  getName();
+  checkIsAdmin();
+  render();
   loginForm.reset();
 }
+
+//! check admin
+
+function checkIsAdmin() {
+  const email = JSON.parse(localStorage.getItem("user"))?.email;
+  if (email !== "admin@gmail.com") {
+    addBtn.style.display = "none";
+    return false;
+  } else {
+    addBtn.style.display = "block";
+    return true;
+  }
+}
+checkIsAdmin();
 
 //! function add products to db
 
@@ -201,8 +243,11 @@ addProductBtn.addEventListener("click", async () => {
 //! function render
 
 async function render() {
-  const res = await fetch(PRODUCTS_API);
-  const data = await res.json();
+  // const res = await fetch(PRODUCTS_API);
+  // const data = await res.json();
+  const data = await getQuery("products");
+
+  container.innerHTML = "";
 
   data.forEach((product) => {
     container.innerHTML += `
@@ -210,11 +255,17 @@ async function render() {
     <div class="card" style="width: 18rem;">
       <img  src=${product.image} class="card-img-top" alt="Product image">
       <div class="card-body">
-        <h5 class="card-title">${product.title}</h5>
-        <h6 class="card-title">${product.price}</h6>
+        <h2 class="card-title">${product.title}</h2>
+        <h5 class="card-price">${product.price}$</h5>
         <p class="card-text">${product.description}</p>
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+         ${
+           checkIsAdmin()
+             ? ` <div>
+               <button id=${product.id} class="edit-btn">Edit</button>
+               <button id=${product.id} class="delete-btn">Delete</button>
+             </div>`
+             : ""
+         }
       </div>
     </div>
     </div>
@@ -229,9 +280,9 @@ render();
 window.addEventListener("storage", getName);
 
 function getName() {
-  let user = localStorage.getItem("user");
+  let user = JSON.parse(localStorage.getItem("user"));
   if (user) {
-    username.innerText = user;
+    username.innerText = user.username;
   } else {
     username.innerText = "";
   }
@@ -256,4 +307,61 @@ document.addEventListener("DOMContentLoaded", function () {
       arrow.parentNode.classList.toggle("collapsed");
     });
   });
+});
+
+//! delete
+document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    await fetch(`${PRODUCTS_API}/${e.target.id}`, { method: "DELETE" });
+    render();
+  }
+});
+
+//! edit
+
+let id = null;
+
+document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("edit-btn")) {
+    const productId = e.target.id;
+    editForm.style.display = "block";
+    overlay.style.display = "block";
+    const data = await getQuery(`products/${productId}`);
+    titleInpEdit.value = data.title;
+    priceInpEdit.value = data.price;
+    categoryInpEdit.value = data.category;
+    descriptionAreaEdit.value = data.description;
+    imgInpEdit.value = data.image;
+    id = productId;
+  }
+});
+
+editForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (
+    !titleInpEdit.value.trim() ||
+    !priceInpEdit.value.trim() ||
+    !descriptionAreaEdit.value.trim() ||
+    !categoryInpEdit.value.trim() ||
+    !imgInpEdit.value.trim()
+  ) {
+    alert("Some inputs are empty");
+    return;
+  }
+  const editedObj = {
+    title: titleInpEdit.value,
+    price: priceInpEdit.value,
+    description: descriptionAreaEdit.value,
+    image: imgInpEdit.value,
+    category: categoryInpEdit.value,
+  };
+  await fetch(`${PRODUCTS_API}/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(editedObj),
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+  render();
+  closeModal();
 });

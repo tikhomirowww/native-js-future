@@ -23,32 +23,28 @@
       "email": "sadykovm874@gmail.com",
       "password": "3218943",
       "id": 5
+    },
+    {
+      "username": "qwerty",
+      "email": "qwe@gmail.com",
+      "password": "12345678",
+      "id": 6
+    },
+    {
+      "username": "Misha",
+      "email": "admin@gmail.com",
+      "password": "12345678",
+      "id": 7
     }
   ],
   "products": [
     {
       "image": "https://i.pinimg.com/originals/7a/dc/b0/7adcb00b069d8994b8923c74c828d8b2.jpg",
-      "title": "Necklace",
-      "price": "200",
+      "title": "Necklace hellooooo",
+      "price": "123456789",
       "category": "nacklaces",
-      "description": "gold",
+      "description": "golddddd",
       "id": 1
-    },
-    {
-      "image": "https://mykaleidoscope.ru/uploads/posts/2022-07/1657070753_1-mykaleidoscope-ru-p-krasivie-zolotie-koltsa-s-kamnyami-devushk-1.jpg",
-      "title": "Ring",
-      "price": "200$",
-      "category": "rings",
-      "description": "gold",
-      "id": 2
-    },
-    {
-      "image": "https://www.shutterstock.com/image-illustration/3d-render-golden-rings-isolated-260nw-172133633.jpg",
-      "title": "rings",
-      "price": "200",
-      "category": "rings",
-      "description": "cool",
-      "id": 3
     }
   ]
 }
