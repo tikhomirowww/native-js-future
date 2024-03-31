@@ -26,7 +26,6 @@
               <p id="username"></p>
             </div>
           </div>
-          <hr />
           <div class="nav_bottom">
             <div class="add">
               <img src="./IMG/icon-add.png" alt="" />
@@ -55,14 +54,14 @@
       <input id="emailInp" type="email" placeholder="Email" />
       <input id="passwordInp" type="password" placeholder="Password" />
       <input id="confirmInp" type="password" placeholder="Confirm password" />
-      <button id="signUp">Sign up</button>
+      <button id="signUp" class="glow-on-hover">Sign up</button>
     </form>
 
     <form class="loginForm modal">
       <h3>Log in</h3>
       <input id="loginEmailInp" type="email" placeholder="Email" />
       <input id="loginPasswordInp" type="password" placeholder="Password" />
-      <button id="loginBtn">Log in</button>
+      <button id="loginBtn" class="glow-on-hover">Log in</button>
     </form>
 
     <!--! add product  -->
@@ -73,18 +72,26 @@
       <input id="titleInp" type="text" placeholder="Title" />
       <input id="priceInp" type="text" placeholder="Price" />
       <input id="categoryInp" type="text" placeholder="Category" />
-      <textarea id="descriptionArea" placeholder="Description"></textarea>
-      <button id="addProductBtn">Add product</button>
+      <textarea
+        id="descriptionArea"
+        placeholder="Description"
+        class="descriptions"
+      ></textarea>
+      <button id="addProductBtn" class="glow-on-hover">Add product</button>
     </form>
 
     <form class="editProduct modal" style="display: none">
       <h3>Edit product</h3>
       <input id="imgInpEdit" type="text" placeholder="URL to image" />
-      <input id="titleInpEdit" type="text" placeholder="Title" />
+      <input iАd="titleInpEdit" type="text" placeholder="Title" />
       <input id="priceInpEdit" type="text" placeholder="Price" />
       <input id="categoryInpEdit" type="text" placeholder="Category" />
-      <textarea id="descriptionAreaEdit" placeholder="Description"></textarea>
-      <button id="addProductBtn">Add product</button>
+      <textarea
+        id="descriptionAreaEdit"
+        placeholder="Description"
+        class="descriptions"
+      ></textarea>
+      <button id="addProductBtn" class="glow-on-hover">Confirm changes</button>
     </form>
 
     <!--! categories -->
@@ -97,57 +104,6 @@
               class="left-catalog-menu no-select customScroll"
               style="position: static; top: 20px"
             >
-              <li class="left-catalog-section first-level">
-                <ul class="left-catalog-section-sections" style="height: 0px">
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Кольца с цирконом</a
-                    >
-                  </li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Кольца с цветными камнями</a
-                    >
-                  </li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Кольца с жемчугом</a
-                    >
-                  </li>
-                  <li><a class="left-catalog-section" href="">Серьги</a></li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Серьги без камней</a
-                    >
-                  </li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Серьги с цирконом</a
-                    >
-                  </li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Серьги с цветными камнями</a
-                    >
-                  </li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Кольца без камней</a
-                    >
-                  </li>
-                  <li><a class="left-catalog-section" href="">Браслеты</a></li>
-                  <li>
-                    <a class="left-catalog-section" href=""
-                      >Браслеты фантазийные</a
-                    >
-                  </li>
-                  <li>
-                    <a class="left-catalog-section" href="">Браслеты кольцо</a>
-                  </li>
-                  <li><a class="left-catalog-section" href="">Кольца</a></li>
-                </ul>
-              </li>
-
               <li class="left-catalog-section first-level">
                 <div class="left-catalog-section-title">
                   <span class="first-level">Rings</span>

@@ -257,10 +257,11 @@ async function render() {
       <div class="card-body">
         <h2 class="card-title">${product.title}</h2>
         <h5 class="card-price">${product.price}$</h5>
+        <span class="card-category">${product.category}</span>
         <p class="card-text">${product.description}</p>
          ${
            checkIsAdmin()
-             ? ` <div>
+             ? ` <div class="buttons">
                <button id=${product.id} class="edit-btn">Edit</button>
                <button id=${product.id} class="delete-btn">Delete</button>
              </div>`
