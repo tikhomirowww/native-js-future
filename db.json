@@ -40,11 +40,19 @@
   "products": [
     {
       "image": "https://i.pinimg.com/originals/7a/dc/b0/7adcb00b069d8994b8923c74c828d8b2.jpg",
-      "title": "Necklace hellooooo",
-      "price": "123456789",
+      "title": "Necklace",
+      "price": "200",
       "category": "nacklaces",
-      "description": "golddddd",
+      "description": "gold",
       "id": 1
+    },
+    {
+      "image": "https://mykaleidoscope.ru/uploads/posts/2022-07/1657070753_1-mykaleidoscope-ru-p-krasivie-zolotie-koltsa-s-kamnyami-devushk-1.jpg",
+      "title": "Ring",
+      "price": "100$",
+      "category": "rings",
+      "description": "gold",
+      "id": 2
     }
   ]
 }
