@@ -38,6 +38,9 @@ const descriptionAreaEdit = document.getElementById("descriptionAreaEdit");
 const cards = document.querySelector(".cards");
 const divImg = document.getElementById("divImg");
 
+//! search
+const searchInp = document.querySelector(".search__input");
+
 const PRODUCTS_API = "http://localhost:8000/products";
 
 //!logout
@@ -242,10 +245,17 @@ addProductBtn.addEventListener("click", async () => {
 
 //! function render
 
+let search = "";
+let category = "";
+let page = 1;
+const limit = 2;
+
 async function render() {
-  // const res = await fetch(PRODUCTS_API);
-  // const data = await res.json();
-  const data = await getQuery("products");
+  let API = category
+    ? `${PRODUCTS_API}?q=${search}&category=${category}&_page=${page}&_limit=${limit}`
+    : `${PRODUCTS_API}?q=${search}&_page=${page}&_limit=${limit}`;
+  const res = await fetch(API);
+  const data = await res.json();
 
   container.innerHTML = "";
 
@@ -365,4 +375,62 @@ editForm.addEventListener("submit", async (e) => {
   });
   render();
   closeModal();
+});
+
+//! search
+searchInp.addEventListener("input", (e) => {
+  console.log(e.target.value);
+  search = e.target.value;
+  render();
+});
+
+//! category
+const categories = document.querySelectorAll(".first-level span");
+console.log(categories);
+
+categories.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    if (e.target.innerText === "All") {
+      category = "";
+    } else {
+      category = e.target.innerText.toLowerCase();
+    }
+    render();
+  });
+});
+
+//!pagination
+const prevBtn = document.querySelector("#prev");
+const nextBtn = document.querySelector("#next");
+const pageSpan = document.querySelector("#pageNum");
+
+async function checkPagination() {
+  const data = await getQuery("products");
+  const totalCount = Math.ceil(data.length / 2);
+  if (page === totalCount) {
+    nextBtn.style.display = "none";
+  } else {
+    nextBtn.style.display = "inline";
+  }
+
+  if (page === 1) {
+    prevBtn.style.display = "none";
+  } else {
+    prevBtn.style.display = "inline";
+  }
+}
+checkPagination();
+
+prevBtn.addEventListener("click", () => {
+  page--;
+  checkPagination();
+  pageSpan.innerText = page;
+  render();
+});
+
+nextBtn.addEventListener("click", () => {
+  page++;
+  checkPagination();
+  pageSpan.innerText = page;
+  render();
 });

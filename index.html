@@ -83,7 +83,7 @@
     <form class="editProduct modal" style="display: none">
       <h3>Edit product</h3>
       <input id="imgInpEdit" type="text" placeholder="URL to image" />
-      <input iАd="titleInpEdit" type="text" placeholder="Title" />
+      <input id="titleInpEdit" type="text" placeholder="Title" />
       <input id="priceInpEdit" type="text" placeholder="Price" />
       <input id="categoryInpEdit" type="text" placeholder="Category" />
       <textarea
@@ -104,6 +104,26 @@
               class="left-catalog-menu no-select customScroll"
               style="position: static; top: 20px"
             >
+              <li class="left-catalog-section first-level">
+                <div class="left-catalog-section-title">
+                  <span class="first-level">All</span>
+                  <svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns=""
+                  >
+                    <path
+                      d="M1 1.25171L6.08389 6.3356L11.1678 1.25171"
+                      stroke="#222222"
+                      stroke-width="2"
+                    ></path>
+                  </svg>
+                </div>
+                <ul class="left-catalog-section-sections"></ul>
+              </li>
+
               <li class="left-catalog-section first-level">
                 <div class="left-catalog-section-title">
                   <span class="first-level">Rings</span>
@@ -292,6 +312,10 @@
       <img src="./IMG/main-img.jpg" alt="" />
     </div>
     <div class="cards-container"></div>
+    <div class="pagination">
+      <button id="prev">Previous</button><span id="pageNum">1</span
+      ><button id="next">Next</button>
+    </div>
   </body>
   <script src="./JS/main.js"></script>
 </html>
